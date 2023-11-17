@@ -10,48 +10,53 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwTl"
         crossorigin="anonymous">
 
+    <!-- Meta Tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="bobwatcherx.github.io" />
 
-    <!-- ================================================ -->
-    <!-- META -->
+    <!-- JavaScript to update meta tags, image src, and link href based on URL parameters -->
+    <script>
+        // Function to get URL parameters
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://bobwatcherx.github.io/tante-melisah/pages/image/sel2.jpg" />
-  <meta property="og:title" content="Masih Handukan Udah ngajain Ngamar" />
-  <meta property="og:description" content="Tante Gede minta kelon di kamar">
-  <meta property="og:url" content="https://bobwatcherx.github.io/tante-melisah/pages/handuk.html" />
-  <meta property="og:site_name" content="bobwatcherx.github.io" />
+        // Encode special characters in the URL parameters
+        var encodedTitle = encodeURIComponent('Masih');
+        var encodedDesc = encodeURIComponent('Tante');
+        var encodedImage = encodeURIComponent('sel2.jpg');
+        var encodedUrl = encodeURIComponent('https://bobwatcherx.github.io/tante-melisah/pages/handuk.html');
 
-<!-- ============================================================== -->
+        // Update meta tags, image src, and link href based on URL parameters
+        document.querySelector('meta[property="og:image"]').content = "https://bobwatcherx.github.io/tante-melisah/pages/image/" + getParameterByName('image') || encodedImage;
+        document.querySelector('meta[property="og:title"]').content = getParameterByName('title') || encodedTitle;
+        document.querySelector('meta[property="og:description"]').content = getParameterByName('desc') || encodedDesc;
+        document.querySelector('meta[property="og:url"]').content = getParameterByName('url') || encodedUrl;
 
-
+        
+    </script>
 
 </head>
 <body>
-                    <!-- CONTENT -->
-<!-- ======================================================== -->
-    
+
+    <!-- CONTENT -->
     <div class="container mt-5">
-        <img src="" style="width:100%;height: 300px;
-        background-size: cover;
-        " alt="">
+        <img src="" style="width:100%;height: 300px; background-size: cover;" alt="">
         <br>
         <h3>Klik DI bawah ini Untuk Menonton Video</h3>
         <br>
-        <a href="" target="_blank"
-        style="background-color: blue;color:white;
-        text-decoration: none;padding: 10px;
-        "
-        >KLIK DISNI UNTUK MENONTON</a>
+        <a href="" target="_blank" style="background-color: blue;color:white;text-decoration: none;padding: 10px;">KLIK DISINI UNTUK MENONTON</a>
     </div>
-
-
-
-
-
-
-<!-- ======================================================== -->
-
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -65,4 +70,13 @@
         crossorigin="anonymous"></script>
 
 </body>
+<script>
+    // Update image src based on URL parameter 'image'
+        var imageUrl = getParameterByName('image') || encodedImage;
+        document.querySelector('img').src = "https://bobwatcherx.github.io/tante-melisah/pages/image/" + imageUrl;
+
+        // Update link href based on URL parameter 'id'
+        var videoId = getParameterByName('id') || 'defaultVideoId';
+        document.querySelector('a').href = "nonton/index.html?id=" + videoId;
+</script>
 </html>

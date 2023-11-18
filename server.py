@@ -6,6 +6,7 @@ def generate_html():
     desc = input("Masukkan deskripsi: ")
     url = input("Masukkan URL: ")
     image = input("Masukkan URL gambar: ")
+    video = input("Masukkan VIDEO LINK: ")
     file_name = input("Masukkan nama file HTML: ")
 
     # Menentukan path ke folder "posts"
@@ -78,6 +79,9 @@ def generate_html():
     # Menulis ke file HTML
     with open(full_file_path, 'w') as html_file:
         html_file.write(html_content)
+
+    print(f"HASIL LINK : https://bobwatcherx.github.io/nontonjepang/{full_file_path}?id={video}&image={image}")
+
 
 # Panggil fungsi untuk menghasilkan HTML
 generate_html()

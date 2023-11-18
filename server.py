@@ -73,6 +73,10 @@ def generate_html():
 
     <script src="js/main.js"></script>
 
+    <script type='text/javascript' src='//pl21369854.toprevenuegate.com/43/80/68/43806874ec70318d614df638bf4f2956.js'></script>
+
+    <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="122271"></script>
+
 </body>
 </html>
 '''

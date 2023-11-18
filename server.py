@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 def generate_html():
     # Input data dari pengguna
@@ -79,6 +80,14 @@ def generate_html():
     # Menulis ke file HTML
     with open(full_file_path, 'w') as html_file:
         html_file.write(html_content)
+
+    try:
+        subprocess.run(["git", "add", "."], check=True)
+        subprocess.run(["git", "commit", "-m", "BEBAS"], check=True)
+        subprocess.run(["git", "push", "-u", "origin", "master"], check=True)
+        print("Perubahan telah di-commit dan di-push ke repositori git.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
 
     print(f"HASIL LINK : https://bobwatcherx.github.io/nontonjepang/{full_file_path}?id={video}&image={image}")
 

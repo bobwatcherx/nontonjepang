@@ -3,35 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nonton JEPANG INDO</title>
+    <title>nonton jepang</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwTl"
         crossorigin="anonymous">
-
-    <!-- Meta Tags -->
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="bobwatcherx.github.io" />
-
 </head>
 <body>
 
-    <!-- CONTENT -->
     <div class="container mt-5">
-        <img src="" style="width:100%;height: 300px; background-size: cover;" alt="">
+        <h3>Nonton VIdeo nya di bawah ini</h3>  
         <br>
-        <h3>Klik DI bawah ini Untuk Menonton Video</h3>
+        <iframe id="videoFrame"
+                style="width:100%;height:350px"
+                sandbox="allow-same-origin allow-scripts" 
+        ></iframe>
+        
         <br>
-        <a href="" target="_blank" style="background-color: blue;color:white;text-decoration: none;padding: 10px;">KLIK DISINI UNTUK MENONTON</a>
-    </div>
 
-    <!-- Iklan -->
-    <div class="container mt-5" id="iklanContainer"></div>
+        <!-- Iklan -->
+        <div class="container mt-5" id="iklanContainer"></div>
+
+    </div>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -56,27 +50,22 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        // Update image src based on URL parameter 'image'
-        var imageUrl = getParameterByName('image') || '';
-        document.querySelector('img').src = "https://bobwatcherx.github.io/nontonjepang/image/" + imageUrl;
-
-        // Update link href based on URL parameter 'id'
-        var videoId = getParameterByName('id') || 'defaultVideoId';
-        document.querySelector('a').href = "nonton/index.html?id=" + videoId;
-
-        // Update meta tags
-        document.querySelector('meta[property="og:image"]').content = "https://bobwatcherx.github.io/nontonjepang/image/" + imageUrl;
-        document.querySelector('meta[property="og:title"]').content = getParameterByName('title') || 'Default Title';
-        document.querySelector('meta[property="og:description"]').content = getParameterByName('desc') || 'Default Description';
-        document.querySelector('meta[property="og:url"]').content = getParameterByName('url') || 'https://bobwatcherx.github.io/nontonjepang';
-
         // Fetch and insert content from iklan.html
-        fetch('iklan.html')
+        fetch('../../iklan.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('iklanContainer').innerHTML = data;
             })
             .catch(error => console.error('Error fetching iklan.html:', error));
+
+        // Set iframe src based on URL parameter 'id'
+        var videoId = getParameterByName('id');
+        if (videoId) {
+            document.getElementById('videoFrame').src = "https://example.com/embed/" + videoId; // Ganti URL sesuai kebutuhan Anda
+        } else {
+            // Handle case when 'id' parameter is not present
+            console.error("No 'id' parameter found in the URL.");
+        }
     </script>
 </body>
 </html>

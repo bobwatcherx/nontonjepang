@@ -30,6 +30,9 @@
         <a href="" target="_blank" style="background-color: blue;color:white;text-decoration: none;padding: 10px;">KLIK DISINI UNTUK MENONTON</a>
     </div>
 
+    <!-- Iklan -->
+    <div class="container mt-5" id="iklanContainer"></div>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -67,6 +70,13 @@
         document.querySelector('meta[property="og:description"]').content = getParameterByName('desc') || 'Default Description';
         document.querySelector('meta[property="og:url"]').content = getParameterByName('url') || 'https://bobwatcherx.github.io/nontonjepang';
 
+        // Fetch and insert content from iklan.html
+        fetch('iklan.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('iklanContainer').innerHTML = data;
+            })
+            .catch(error => console.error('Error fetching iklan.html:', error));
     </script>
 </body>
 </html>

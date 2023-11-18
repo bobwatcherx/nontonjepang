@@ -17,10 +17,4 @@
         var videoId = getParameterByName('id') || 'defaultVideoId';
         document.querySelector('a').href = "nonton/index.html?id=" + videoId;
 
-        // Fetch and insert content from iklan.html
-        fetch('iklan.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('iklanContainer').innerHTML = data;
-            })
-            .catch(error => console.error('Error fetching iklan.html:', error));
+     

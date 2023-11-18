@@ -51,9 +51,13 @@ def generate_html():
         <a href="{url}" style="background-color: blue;color:white;text-decoration: none;padding: 10px;">KLIK DISINI UNTUK MENONTON</a>
     </div>
     <br>
-    <!-- Iklan -->
-    <div class="container mt-5" id="iklanContainer"></div>
+   <!-- Iklan -->
+        <div style="display: flex;justify-content: center;margin:10px;">
+            <iframe data-aa='2278339' src='//ad.a-ads.com/2278339?size=300x250' style='width:300px; height:250px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe>
+        </div>
 
+
+        
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
